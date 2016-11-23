@@ -1,11 +1,16 @@
 package com.example.jdbcdemo.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Shop {
 private long id;
 	
 	private String Name;
 	private String Type;
 	private int Price;
+	private String pets;
+	private List<Food> foods;
 	public Shop() {
 	}
 	
@@ -42,8 +47,25 @@ private long id;
 		return Price;
 	}
 
+
+	public void setFoods(List<Food> foods) {
+		this.foods = foods;
+	}
+
 	public void setPrice(int Price) {
 		this.Price = Price;
+	}
+
+	public List<Food> getFoods(){
+		return foods;
+	}
+
+	public String getPets() {
+		return pets;
+	}
+
+	public void setPets(String pets) {
+		this.pets = pets;
 	}
 	
 }

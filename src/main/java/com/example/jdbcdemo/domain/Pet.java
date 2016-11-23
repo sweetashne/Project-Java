@@ -1,26 +1,27 @@
 package com.example.jdbcdemo.domain;
 
+import java.util.List;
+
 public class Pet {
 	
 	private long id;
 	
-	private String Name;
+	private String Pname;
 	private String Type;
-	
 	public Pet() {
 	}
 	
-	public Pet(String Name, String Type) {
+	public Pet(String Pname, String Type) {
 		super();
-		this.Name = Name;
+		this.Pname = Pname;
 		this.Type = Type;
 	}
-	public String getName() {
-		return Name;
+	public String getPname() {
+		return Pname;
 	}
 
-	public void setName(String Name) {
-		this.Name = Name;
+	public void setPname(String Pname) {
+		this.Pname = Pname;
 	}
 
 	public String getType() {

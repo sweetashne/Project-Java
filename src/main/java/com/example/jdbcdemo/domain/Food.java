@@ -3,23 +3,23 @@ package com.example.jdbcdemo.domain;
 public class Food {
 	private long id;
 	
-	private String Name;
+	private String Fname;
 	private String Type;
 	
 	public Food() {
 	}
 	
-	public Food(String Name, String Type) {
+	public Food(String Fname, String Type) {
 		super();
-		this.Name = Name;
+		this.Fname = Fname;
 		this.Type = Type;
 	}
-	public String getName() {
-		return Name;
+	public String getFname() {
+		return Fname;
 	}
 
-	public void setName(String Name) {
-		this.Name = Name;
+	public void setFname(String Fname) {
+		this.Fname = Fname;
 	}
 
 	public String getType() {

@@ -12,9 +12,9 @@ import com.example.jdbcdemo.domain.Food;
 public class FoodManagerTest {
 	FoodManager FoodManager = new FoodManager();
 	
-	private final static String NAME_1 = "Healthy Food";
+	private final static String Fname_1 = "Healthy Food";
 	private final static String Type_1 = "Dog food";
-	private final static String Name_2 = "Unhealthy Food";
+	private final static String Fname_2 = "Unhealthy Food";
 	private final static String Type_2 = "Cat food";
 	private final static long Id_1 = 0;
 	@Test
@@ -25,7 +25,7 @@ public class FoodManagerTest {
 	@Test
 	public void checkAdding(){
 		
-		Food food = new Food(NAME_1,Type_1);
+		Food food = new Food(Fname_1,Type_1);
 		
 		FoodManager.clearFoods();
 		assertEquals(1,FoodManager.addFood(food));
@@ -33,14 +33,14 @@ public class FoodManagerTest {
 		List<Food> foods = FoodManager.getAllFoods();
 		Food FoodRetrieved = foods.get(0);
 		
-		assertEquals(NAME_1, FoodRetrieved.getName());
+		assertEquals(Fname_1, FoodRetrieved.getFname());
 		assertEquals(Type_1, FoodRetrieved.getType());
 		
 		
 	}
 	@Test
 	public void checkingUpdating(){
-		Food food = new Food(Name_2, Type_2);
+		Food food = new Food(Fname_2, Type_2);
 		
 		List<Food> Foods = FoodManager.getAllFoods();
 		Food FoodRetrieved = Foods.get(0);
@@ -50,7 +50,7 @@ public class FoodManagerTest {
 		List<Food> Foods2 = FoodManager.getAllFoods();
 		Food FoodRetrieved2 = Foods2.get(0);
 		
-		assertEquals(Name_2, FoodRetrieved2.getName());
+		assertEquals(Fname_2, FoodRetrieved2.getFname());
 		assertEquals(Type_2, FoodRetrieved2.getType());
 	} 
 }
