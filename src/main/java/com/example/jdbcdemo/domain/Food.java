@@ -13,7 +13,7 @@ public class Food {
 		super();
 		this.Name = Name;
 		this.Type = Type;
-	
+		this.id = id;
 	}
 	public String getName() {
 		return Name;
@@ -30,11 +30,11 @@ public class Food {
 	public void setType(String Type) {
 		this.Type = Type;
 	}
-
-
+	
 	public long getId() {
 		return id;
 	}
+	
 	public void setId(long id) {
 		this.id = id;
 	}

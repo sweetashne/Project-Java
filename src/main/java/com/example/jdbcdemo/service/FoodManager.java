@@ -21,7 +21,7 @@ public class FoodManager {
 	private PreparedStatement addFoodStmt;
 	private PreparedStatement deleteAllFoodsStmt;
 	private PreparedStatement getAllFoodsStmt;
-	private PreparedStatement UpdateFoodStmt;
+	private PreparedStatement updateFoodStmt;
 	private Statement statement;
 
 	public FoodManager() {
@@ -43,11 +43,13 @@ public class FoodManager {
 				statement.executeUpdate(createTableFood);
 
 			addFoodStmt = connection
-					.prepareStatement("INSERT INTO Food (Name, Type, Price) VALUES (?, ?, ?)");
+					.prepareStatement("INSERT INTO Food (Name, Type) VALUES (?, ?)");
 			deleteAllFoodsStmt = connection
 					.prepareStatement("DELETE FROM Food");
 			getAllFoodsStmt = connection
-					.prepareStatement("SELECT id, Name, Type, Price FROM Food");
+					.prepareStatement("SELECT id, Name, Type FROM Food");
+			updateFoodStmt = connection
+					.prepareStatement("UPDATE Food set Name=?, Type=? WHERE id=?");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -80,6 +82,21 @@ public class FoodManager {
 		return count;
 	}
 
+	public int updateFood(Food Food,long id){
+		int c = 0;
+		try {
+			updateFoodStmt.setString(1, Food.getName());
+			updateFoodStmt.setString(2, Food.getType());
+			updateFoodStmt.setLong(3, id);
+
+			c = updateFoodStmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return c;
+	}
+	
 	public List<Food> getAllFoods() {
 		List<Food> Foods = new ArrayList<Food>();
 

@@ -6,16 +6,14 @@ public class Pet {
 	
 	private String Name;
 	private String Type;
-	private int Price;
 	
 	public Pet() {
 	}
 	
-	public Pet(String Name, String Type, int Price) {
+	public Pet(String Name, String Type) {
 		super();
 		this.Name = Name;
 		this.Type = Type;
-		this.Price = Price;
 	}
 	public String getName() {
 		return Name;
@@ -31,14 +29,6 @@ public class Pet {
 
 	public void setType(String Type) {
 		this.Type = Type;
-	}
-
-	public int getPrice() {
-		return Price;
-	}
-
-	public void setPrice(int Price) {
-		this.Price = Price;
 	}
 
 	public long getId() {
