@@ -5,11 +5,11 @@ private long id;
 	
 	private String Name;
 	private String Type;
-	
+	private int Price;
 	public Shop() {
 	}
 	
-	public Shop(String Name) {
+	public Shop(String Name,String Type,int Price) {
 		super();
 		this.Name = Name;
 	}
@@ -27,4 +27,21 @@ private long id;
 	public void setId(long id) {
 		this.id = id;
 	}
+
+	public String getType() {
+		return Type;
+	}
+
+	public void setType(String Type) {
+		this.Type = Type;
+	}
+
+	public int getPrice() {
+		return Price;
+	}
+
+	public void setPrice(int Price) {
+		this.Price = Price;
+	}
+	
 }

@@ -5,16 +5,15 @@ public class Food {
 	
 	private String Name;
 	private String Type;
-	private int Price;
 	
 	public Food() {
 	}
 	
-	public Food(String Name, String Type, int Price) {
+	public Food(String Name, String Type) {
 		super();
 		this.Name = Name;
 		this.Type = Type;
-		this.Price = Price;
+	
 	}
 	public String getName() {
 		return Name;
@@ -32,13 +31,6 @@ public class Food {
 		this.Type = Type;
 	}
 
-	public int getPrice() {
-		return Price;
-	}
-
-	public void setPrice(int Price) {
-		this.Price = Price;
-	}
 
 	public long getId() {
 		return id;
