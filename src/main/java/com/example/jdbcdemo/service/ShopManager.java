@@ -58,7 +58,7 @@ public class ShopManager {
 			getPetsStmt = connection
 					.prepareStatement("select shop.id,shop.name,shop.type,shop.price,pet.pname from shop left join pet on pet.type=shop.type ");
 			deletePetStmt = connection
-					.prepareStatement("");
+					.prepareStatement("delete from shop where shop.type in(select type from pet where shop.type=pet.type)");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -130,6 +130,13 @@ public class ShopManager {
 		return Shops;
 	}
 	
+	void deletePet() {
+		try {
+			deletePetStmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public List<Shop> getAllShops() {
 		List<Shop> Shops = new ArrayList<Shop>();

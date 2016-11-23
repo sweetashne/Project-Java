@@ -69,4 +69,14 @@ public class ShopManagerTest {
 		assertEquals(Price_1, shopRetrieved.getPrice());
 		assertEquals(NAME_3, shopRetrieved.getPets());
 	} 
+	@Test(expected=IndexOutOfBoundsException.class)
+	public void checkDeleting(){
+		
+		
+		 ShopManager.deletePet();
+		List<Shop> Shops = ShopManager.getAllShops();
+		
+		Shop ShopRetrieved = Shops.get(0);
+		
+	}
 }
