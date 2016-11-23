@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.jdbcdemo.domain.Pet;
+import com.example.jdbcdemo.domain.Pet;
 
 public class PetManager {
 
@@ -22,7 +23,8 @@ public class PetManager {
 	private PreparedStatement addPetStmt;
 	private PreparedStatement deleteAllPetsStmt;
 	private PreparedStatement getAllPetsStmt;
-
+	private PreparedStatement updatePetStmt;
+	
 	private Statement statement;
 
 	public PetManager() {
@@ -44,11 +46,14 @@ public class PetManager {
 				statement.executeUpdate(createTablePet);
 
 			addPetStmt = connection
-					.prepareStatement("INSERT INTO Pet (Name, Type) VALUES (?, ?, ?)");
+					.prepareStatement("INSERT INTO Pet (Name, Type) VALUES (?, ?)");
 			deleteAllPetsStmt = connection
 					.prepareStatement("DELETE FROM Pet");
 			getAllPetsStmt = connection
 					.prepareStatement("SELECT id, Name, Type FROM Pet");
+			updatePetStmt = connection
+					.prepareStatement("UPDATE Pet set Name=?, Type=? WHERE id=?");
+
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -79,6 +84,20 @@ public class PetManager {
 			e.printStackTrace();
 		}
 		return count;
+	}
+	public int updatePet(Pet Pet,long id){
+		int c = 0;
+		try {
+			updatePetStmt.setString(1, Pet.getName());
+			updatePetStmt.setString(2, Pet.getType());
+			updatePetStmt.setLong(3, id);
+
+			c = updatePetStmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return c;
 	}
 
 	public List<Pet> getAllPets() {

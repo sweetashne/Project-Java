@@ -13,7 +13,6 @@ public class Food {
 		super();
 		this.Name = Name;
 		this.Type = Type;
-		this.id = id;
 	}
 	public String getName() {
 		return Name;

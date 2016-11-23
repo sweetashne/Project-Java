@@ -12,6 +12,8 @@ private long id;
 	public Shop(String Name,String Type,int Price) {
 		super();
 		this.Name = Name;
+		this.Type = Type;
+		this.Price = Price;
 	}
 	public String getName() {
 		return Name;

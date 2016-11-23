@@ -16,7 +16,7 @@ public class FoodManagerTest {
 	private final static String Type_1 = "Dog food";
 	private final static String Name_2 = "Unhealthy Food";
 	private final static String Type_2 = "Cat food";
-	private final static long Id_1 = 1;
+	private final static long Id_1 = 0;
 	@Test
 	public void checkConnection(){
 		assertNotNull(FoodManager.getConnection());
@@ -42,12 +42,15 @@ public class FoodManagerTest {
 	public void checkingUpdating(){
 		Food food = new Food(Name_2, Type_2);
 		
-		assertEquals(1,FoodManager.updateFood(food, Id_1));
-		
 		List<Food> Foods = FoodManager.getAllFoods();
 		Food FoodRetrieved = Foods.get(0);
 		
-		assertEquals(Name_2, FoodRetrieved.getName());
-		assertEquals(Type_2, FoodRetrieved.getType());
+		assertEquals(1,FoodManager.updateFood(food, FoodRetrieved.getId()));
+		
+		List<Food> Foods2 = FoodManager.getAllFoods();
+		Food FoodRetrieved2 = Foods2.get(0);
+		
+		assertEquals(Name_2, FoodRetrieved2.getName());
+		assertEquals(Type_2, FoodRetrieved2.getType());
 	} 
 }
